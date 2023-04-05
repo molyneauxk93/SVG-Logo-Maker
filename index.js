@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 //importing generateMArkdown javascript file 
-const generateMarkdown = require('./utils/generateSVG.js');
+const { generateSVG } = require('./utils/generateSVG.js');
 
 
 // TODO: Create an array of questions for user input
@@ -45,9 +45,9 @@ function init() {
         .then((data) => {
             console.log(data);
 
-            const fileName = 'logo.svg';
+            const fileName = './examples/logo.svg';
 
-            writeToFile(fileName, generateMarkdown(data));
+            writeToFile(fileName, generateSVG(data));
 
         });
 }
